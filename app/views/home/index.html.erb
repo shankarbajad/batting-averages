@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= form_tag(root_path, method: 'get') do %>
+        <%= text_field_tag :yearId, nil, placeholder: "Year ID" %>
+        <%= text_field_tag :team_name, nil, placeholder: "Team Name" %>
+        <%= submit_tag "Filter" %>
+      <% end %>
+    </div>
+    <div class="col-sm-12">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">playerID</th>
+            <th scope="col">yearId</th>
+            <th scope="col">team_name</th>
+            <th scope="col">batting_averag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @batting_records.each_with_index do |batting_record,index| %>
+            <tr>
+              <th scope="row"><%= index+1 %></th>
+              <td><%= batting_record.playerID %></td>
+              <td><%= batting_record.yearId %></td>
+              <td><%= batting_record.team_name %></td>
+               <td><%= batting_record.batting_averag %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

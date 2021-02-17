@@ -1,0 +1,2 @@
+class BattingRecord < ApplicationRecord
+end
